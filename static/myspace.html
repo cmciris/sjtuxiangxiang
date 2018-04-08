@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>个人空间 - 交大享享</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+<body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html">
+            <img alt="Brand" src="img/logo.png">
+          </a>
+        </div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="index.html">主页</a>
+						</li>
+						<li >
+							<a href="itemlist_wanted.html">物品</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control">
+						</div>
+						<button type="submit" class="btn btn-default">
+							搜索
+						</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">我的信息<strong class="caret"></strong></a>
+							 <!--这里是否可以替换为用户名？-->
+							<ul class="dropdown-menu">
+								<li>
+									<a href="myspace.html">个人空间</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									<a href="notifications-unread.html">消息</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" id='logstate'>注销</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<img src="img/banner-slim.png" class="img-responsive" alt="Responsive image">
+			</br>
+		</div>
+	</div>
+</br>
+
+
+<!-- add contents here -->
+<div class = "row">
+	<div class="col-md-8">
+		<div class="col-md-2"></div>
+		<div class="col-md-10">
+			<h4>我的交易记录</h4>
+			<table class="table table-hover">
+			<thead>
+				<tr>
+	                <th>
+						状态
+					</th>
+					<th>
+					</th>
+					<th>
+						内容
+					</th>
+
+					<th>
+						联系人
+					</th>
+					<th>
+						交易日期
+					</th>
+					<th>
+						交易确认
+					</th>
+				</tr>
+			</thead>
+			<tbody id="table-body"></tbody>
+		</table>
+
+		<!-- <nav aria-label="Page navigation" style="width: auto;display: table;margin-left: auto;margin-right: auto;">
+		  <ul class="pagination">
+		    <li>
+		   </li><li class="disabled">
+		      <span>
+		        <span aria-hidden="true">«</span>
+		      </span>
+		    </li>
+		    <li class="active">
+		      <span>1 <span class="sr-only">(current)</span></span>
+		    </li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li>
+		      <a href="#" aria-label="Next">
+		        <span aria-hidden="true">»</span>
+		      </a>
+		    </li>
+		  </ul>
+		</nav> -->
+
+	 	<div class="row" style="height: 100px;">
+	    <h4>我的共享物品</h4>
+	      <div class="row" id="itemlist-table">
+	      	<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>
+							状态
+						</th>
+						<th>
+							需求标题
+						</th>
+						<th>
+							有效日期
+						</th>
+						<th>
+							发布人
+						</th>
+						<th>
+							物品价格
+						</th>
+					</tr>
+				</thead>
+				<tbody id="itemlist">
+				</tbody>
+			</table>
+	      </div>
+		</div>
+		</div>
+
+	</div>
+	<div class="col-md-4">
+		<div class="col-md-10">
+			<div class="thumbnail">
+		      <img src="img/idphoto.jpg" alt="..." class = "img-circle">
+		        <dt>用户名：</dt><span id="user_name"> Peter Chen</span>
+				  <dt>享享信用：</dt><span id="user_score">43</span>  <span class="label label-warning">二级</span>
+				  <dt>情感状态：</dt><span id="user_sex">男</span>
+				  <dt>年龄：</dt><span id="user_age">21</span>
+				  <dt>手机号：</dt><span id="user_email">15008926438</span>
+				  <dt>个人描述：</dt><span><p id="user_info">用户自己填入的个人简介，用户自己填入的个人简介，用户自己填入的个人简介，用户自己填入的个人简介，用户自己填入的个人简介，用户自己填入的个人简介</p></span>
+		      <div class="caption">
+		     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editprofile" style="width: auto;display: table;margin-left: auto;margin-right: auto;">
+					  完善我的个人信息
+			</button>
+		      </div>
+		      </div>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+</div>
+
+
+<!-- footer -->
+<div class="container site-footer-container">
+<p class="text-right">© 2017 <a href="#">SJTU享享</a></p>
+</div>
+
+<!-- Modal 修改个人信息 这里还未完成！！ -->
+<div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="editprofile">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">用户信息详情</h4>
+      </div>
+      <div class="modal-body">
+       <div class="modal-body">
+						<form role="form" name="request" action="/user/updateinfo" method="post">
+							<div class="form-group">
+
+								<label for="username">
+									年龄
+								</label>
+								<input type="text" class="form-control" id="requesttitle" name="Age" />
+							</div>
+							<div class="form-group">
+
+								<label for="username">
+									情感状态
+								</label>
+								<input type="text" class="form-control" id="requesttitle" name="RelationStatus" />
+							</div>
+
+							<div class="form-group">
+
+								<label for="phonenum">
+									Jaccount
+								</label>
+								<input type="text" class="form-control" id="requesttitle" name="jaccount" />
+							</div>
+							<div class="form-group">
+												<label>
+									个人描述
+								</label>
+							<textarea class="form-control" rows="5" name="description"></textarea></br>
+        					<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        					<button type="submit" value="submit" class="btn btn-primary">发布</button>
+							</div>
+						</form>
+					</div></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- script -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/header.js"></script>
+    <script>
+        if (getCookie("uid") == "") {
+            location.href = "login.html";
+        }
+        var url = "/user/info";
+        $.getJSON(url, function (data) {
+        	console.log(data);
+        	document.getElementById('user_name').innerHTML = data.Uid;
+        	document.getElementById('user_age').innerHTML = data.Age;
+        	document.getElementById('user_sex').innerHTML = data.RelationshipStatus;
+        	document.getElementById('user_score').innerHTML = data.Score;
+        	document.getElementById('user_info').innerHTML = data.Description;
+        	document.getElementById('user_email').innerHTML = data.Phone;
+        });
+
+        url = "/user/listShare";
+        $.getJSON(url, function (data) {
+        	var list = document.getElementById('itemlist');
+        	for (var i=0; i<data.length; i++) {
+        		var item = data[i];
+            	console.log(item);
+            	var status = item.Obj_state == "0" ? '<td><span class="label label-default">未完成' : '<td><span class="label label-success">已完成';
+            	var tpl = document.createElement('tr');
+                tpl.innerHTML = status +
+                	'</span></td><td><a href="object.html?id=' +
+                	item.Obj_name + '">' + item.Obj_name +
+                	'</a></td><td>' + item.Upload_time + '至' + item.Use_time + '</td><td>' + item.Uid + '</td><td>' + item.Obj_price + '元/天 </td>';
+            // tpl.class = "success";
+            	list.appendChild(tpl);
+        	}
+        });
+    </script>
+    <script src="js/TradeRecord.js"></script>
+  </body>
+</html>
